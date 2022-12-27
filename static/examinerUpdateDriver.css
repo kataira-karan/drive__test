@@ -1,0 +1,43 @@
+.examinerUpdateDriver-container{
+    height: 80vh;
+    width:  80vw;
+    margin: 30px auto;
+    border-radius: 10px;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 3px 3px 3px grey;
+}
+
+.test-results-form{
+    background-color: grey;
+    padding:1rem;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px grey;
+}
+
+.test-results-form header{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin:1rem 0;
+}
+
+.form-controler{
+    margin:0.5rem 0;
+}
+
+.form-controler label{
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600     ;
+}
+
+.test-results-form input[type="submit"]{
+    padding: 0.3rem 1rem;
+    margin-top:0.5rem ;
+    border-radius: 10px;
+    border:none;  
+}

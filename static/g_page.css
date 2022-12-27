@@ -1,0 +1,109 @@
+.gPage-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 98vw;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  /* margin-top:30vh; */
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  color: grey;
+}
+input {
+  /* border: none; */
+  padding: 8px;
+}
+
+.submitButton {
+  /* display: block; */
+  margin-top: 15px;
+  margin-left: 10px;
+  /* width: 100%; */
+  height: 100%;
+}
+
+.divider {
+  margin: 0px 30px;
+}
+
+.gForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 80vw; */
+  /* background-color: royalblue; */
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.8rem;
+}
+
+.user-detail {
+  font-size: 15px;
+  color: black;
+}
+
+.userdetail-label {
+  font-size: 12px;
+  color: grey;
+  padding: 0.7rem;
+}
+
+.name-div,
+.car-details,
+.street-details {
+  display: flex;
+}
+
+.input-title {
+  display: block;
+}
+
+button {
+  padding: 0.7rem 0;
+  display: block;
+  width: 90%;
+}
+
+.success-message {
+  padding: 1rem;
+  border: 1px solid green;
+  color: green;
+  margin-bottom: 1rem;
+}
+
+.readonly {
+  background-color: rgb(201, 198, 198);
+}
+
+.userAdded {
+  padding: 1rem;
+  border: 1px soldi green;
+}
+
+
+
+.gappointment-container{
+  /* background-color: green; */
+  /* width: 20vw; */
+  margin-top: 10px;
+}
+
+.g-appointments{
+  /* background-color:  aqua; */
+  
+  width: 90vw;
+  display: grid;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  grid-template-columns: 1fr 1fr 1fr;
+  padding:1rem;
+  box-shadow: 3px 3px 3px grey;
+  border-radius: 5px;
+}

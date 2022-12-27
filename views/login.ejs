@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/home.css" />
+    <link rel="stylesheet" href="/login.css" />
+  </head>
+  <body>
+    <%- include('partials/nav') -%>
+    <div class="login-page-container">
+      <div class="singInForm">
+        <form action="/auth/login" method="POST">
+          <% if(typeof passwordError != "undefined"){ %>
+
+          <span class="errorMessage"> <%= passwordError %> </span>
+          <% } %>
+
+          <header>Login</header>
+
+          <div class="form_control">
+            <label for=""> UserName </label>
+
+            <input
+              type="text"
+              placeholder="UserName"
+              id="userName"
+              name="userName"
+            />
+          </div>
+
+          <div class="form_control">
+            <label for=""> Password </label>
+
+            <input
+              type="password"
+              placeholder="password"
+              id="password"
+              name="password"
+            />
+          </div>
+
+          <label for="cars">User Tyype:</label>
+
+          <select name="userType" id="userType">
+            <option value="admin">admin</option>
+            <option value="driver">Driver</option>
+            <option value="examiner">Examiner</option>
+          </select>
+
+          <input type="submit" class="submitButton" value="Login" />
+        </form>
+      </div>
+
+      <div class="singUpForm">
+        <header>Register</header>
+        <form action="auth/addnewuser" method="POST">
+          <div class="form_control">
+            <label for="userName"> User Name </label>
+
+            <input
+              type="text"
+              placeholder="user name"
+              id="userName"
+              name="userName"
+            />
+          </div>
+
+          <div class="form_control">
+            <label for="password"> Password </label>
+
+            <input
+              type="password"
+              placeholder="password"
+              id="passsword"
+              name="password"
+            />
+          </div>
+
+          <div class="form_control">
+            <label for=""> Confirm Password </label>
+
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              id="confirmPassword"
+              name="confirmPassword"
+            />
+          </div>
+
+          <label for="cars">User Tyype:</label>
+
+          <select name="userType" id="userType">
+            <option value="admin">admin</option>
+            <option value="driver">Driver</option>
+            <option value="examiner">Examiner</option>
+          </select>
+
+          <input type="submit" class="submitButton" value="Sign Up" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

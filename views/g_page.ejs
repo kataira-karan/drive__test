@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/home.css" />
+    <link rel="stylesheet" href="/g_page.css" />
+    <link rel="stylesheet" href="/g2_page.css" />
+    <!-- <link rel="stylesheet" href="/g2_page.css" /> -->
+  </head>
+  <body>
+    <%- include('partials/nav') -%>
+    <div class="gPage-container">
+
+        <header>Available G Appointments</header>
+
+      <div class="g-appointments">
+
+        <% if(typeof gAppointments != "undefined")  {%>
+
+          <% if(gAppointments.length === 0 ){ %>
+
+            <header> No G Appointment</header>
+
+            <% } %>
+
+            <% if(gAppointments.length != 0 ){ %>
+
+              <% for(var i = 0 ; i < gAppointments.length ; i++){%>
+                <div>
+                  <form class="gappointment-container" method="POST" action="/appointment/bookmygappointment">
+                    <span class="book-appointment-field" class="appointmnet-start-at">
+                      <label class="book-appointment-field-title"> AppointmentId :</label>
+                      <input class="book-appointment-field-value" id="appointmnet_appointmentId" name="appointmnet_appointmentId" value="<%= gAppointments[i]._id %>" readonly>
+                 
+                      </input>                                                                                                                                                                
+                    </span>
+          
+                    <span class="book-appointment-field" class="appointmnet-date">
+                      <label class="book-appointment-field-title">Date :</label>
+                      <input class="book-appointment-field-value" name="apponintment_date" value="<%= gAppointments[i].date %>" readonly>
+                        </input
+                      ></span
+                    >
+          
+                    <span class="book-appointment-field" class="appointmnet-start-at">
+                      <label class="book-appointment-field-title">Timing :</label>
+                      <input class="book-appointment-field-value" name="appointmnet_time" value="<%= gAppointments[i].appointmentStartAt %> - <%=
+                      gAppointments[i].appointmentEndAt %>" readonly>
+                 
+                      </input>                                                                                                                                                                
+                    </span>
+          
+                    <input type="submit" class="book-appointment-button" value="Book Appointment"> </input>
+                  </form>
+                  
+                </div>
+                
+                
+                <% } %>
+  
+              <% } %>
+
+          <% } %>
+
+        
+  
+  
+      </div>
+
+      
+      <!-- <%if(typeof message != "undefined") {%>
+      <h2 class="userAdded">  <%= message %></h2>
+      <%}%>
+
+
+      <div>
+        <form action="/getUserDetails/userId" method="get" class="gForm">
+          <div class="form_control">
+            <label for=""> UserId </label>
+
+            <input type="text" placeholder="" id="userId" name="userId" />
+          </div>
+          <div class="divider">OR</div>
+          <div class="form_control">
+            <label for=""> License Number </label>
+
+            <input
+              type="text"
+              placeholder=""
+              id="licenseNumber"
+              name="licenseNumber"
+            />
+          </div>
+          <br />
+          <input type="submit" class="submitButton" />
+        </form>
+
+        <%if(typeof user != "undefined") { %>
+        <div class="user-details">
+
+
+          <form action="/updateuser" method="POST">
+
+            <div class="name-div">
+              <div class="userdetail-label"> 
+             <span class="input-title"> First Name:</span><span class="user-detail"> <input type="text" value="<%= user.firstName%>" name="firstName" id="firstName" class="readonly" readonly>  </span> </div>
+            <div class="userdetail-label"> <span class="input-title"> Last Name:</span>  <span class="user-detail"> <input type="text" name="lastName" id="lastName"class="readonly" value="<%= user.lastName%>" readonly></span></div>
+            </div>
+            
+            <div class="userdetail-label"><span class="input-title"> UserId:</span>  <span class="user-detail"> <input type="text" name="userId" id="userId" value="<%= user.userId%>" class="readonly"readonly> </span></div>
+            <div class="userdetail-label"><span class="input-title"> DOB:</span>  <span class="user-detail"> <input type="text" name="dob" id="dob" value="<%= user.dob%>" class="readonly" readonly></span> </div>
+  
+            <div class="street-details">
+  
+              <div class="userdetail-label"><span class="input-title"> House No:</span> <span class="user-detail"> <input type="text"  name="houseNo" id="houseNo" value="<%= user.address.houseNo%>" >   </span>  </div>
+              <div class="userdetail-label"><span class="input-title"> Street Name:</span>  <span class="user-detail"> <input type="text" name="streetName" id="streetName" value="<%= user.address.streetName%>"  >   </span>  </div>
+              <div class="userdetail-label"><span class="input-title"> City:</span>  <span class="user-detail">  <input type="text" id="city" name="city" value="<%= user.address.city%>" > </span>  </div>
+              <div class="userdetail-label"><span class="input-title"> Province:</span>  <span class="user-detail">  <input type="text" name="province" id="province" value="<%= user.address.province%>" > </span>  </div>
+            <div class="userdetail-label"><span class="input-title"> Postal Code:</span>  <span class="user-detail">  <input type="text" id="postalCode" name="postalCode" value="<%= user.address.postalCode%>" > </span>  </div>
+  
+            </div>
+
+            <div class="car-details">
+              <div class="userdetail-label"><span class="input-title"> Car Model:</span>  <span class="user-detail"> <input type="text" id="carModel" name="carModel" value="<%= user.car.model%>" >   </span>  </div>
+            <div class="userdetail-label"><span class="input-title"> Car Year:</span>  <span class="user-detail"><input type="text" id="carYear" name="carYear" value="<%= user.car.year%>" >  </span>  </div>
+            <div class="userdetail-label"><span class="input-title"> Plate Number:</span>  <span class="user-detail">  <input type="text" id="carPlateNumber" name="carPlateNumber" value="<%= user.car.plateNumber%>" > </span>  </div>
+            </div>
+            
+            <div class="userdetail-label"><span class="input-title"> License Number:</span>  <span class="user-detail"> <input type="text" name="licenseNumber" id="licenseNumber" class="readonly" value="<%= user.licenseNumber%>" readonly  > </span>    </div>
+            
+            
+            <input type="submit" value="SUBMIT" >
+
+          </form>
+
+
+        <% }%>
+      </div>
+    </div> -->
+  </body>
+</html>

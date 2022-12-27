@@ -1,0 +1,47 @@
+.examiner-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90vw;
+
+}
+
+.g2_tests{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 88vh;
+    padding:3rem 3rem;
+
+}
+
+.g2_tests header{
+    font-size: 2rem;
+    font-weight: bold;
+    
+}
+
+.g2-test-drivers-container{
+
+}
+
+
+.g2Drivers-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:1rem;
+}
+
+
+
+.g2Driver-details-card{
+    padding:1rem;
+    border-radius:5px;
+    box-shadow: 3px 3px 5px grey;
+    /* border:1px solid black; */
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+.g2Driver-details-span{
+     
+}

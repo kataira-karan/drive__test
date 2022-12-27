@@ -1,0 +1,189 @@
+.appointment-container {
+  display: flex;
+  height: 80vh;
+  width: 80vw;
+  border-radius: 10px;
+  margin: 2rem auto;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  box-shadow: 5px 5px 5px grey;
+  box-shadow: inset 10px grey;
+}
+/* APPOINTMENT FORM CONTAINER */
+
+.appointment-form-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 30%;
+  justify-content: center;
+}
+
+.appointment-form-container h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  margin-block-end: 1rem;
+}
+
+.form-control input {
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 3px grey;
+}
+
+.form-control input:focus {
+  outline: none;
+}
+
+.form-control select {
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 3px grey;
+}
+
+.submitButton {
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 3px grey;
+  display: block;
+  width: 57%;
+  font-weight: 700;
+}
+
+/* END OF APPOINTMENT FORM CONTAINER */
+
+/* DISPLAY-ALL-CONTAINER-CONTAINER  starts  */
+
+.display-all-appointment-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+/* find-appointment-form-container  START */
+
+.find-appointment-form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.find-appointment-form {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.find_date_form-control {
+  height: 100%;
+}
+
+.find_date_form-control input {
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 3px grey;
+}
+
+/* find-appointment-form-container  ends */
+
+.appointment-date-label {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.time-slot {
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: transparent;
+  box-shadow: 2px 2px 5px gery;
+  cursor: pointer;
+  border: 0.5px solid black;
+  margin: 0.5rem;
+  font-weight: bold;
+}
+
+/* END OF APPPOINTMENT CONTAINER */
+
+.appointments {
+  overflow: scroll;
+  height: 100%;
+  margin-top: 1rem;
+  /* background-color: red; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* background-color: red; */
+}
+
+.appointment-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  background-color: rgb(229, 226, 226);
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  margin: 0.4rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4.5px grey;
+  /* border: 1px solid black; */
+}
+
+.appointment-box-field {
+  font-size: 0.9 rem;
+}
+
+.available {
+  display: block;
+  margin-top: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  font-size: 0.8rem;
+  background-color: rgb(83, 172, 83);
+  width: 100%;
+}
+
+.booked {
+  background-color: grey;
+}
+
+.appointments::-webkit-scrollbar {
+  display: none;
+}
+
+/* DISPLAY-ALL-CONTAINER-CONTAINER  ends     */
+
+
+.duplicate-entry-message{
+  border:1px solid red;
+  text-align: center;
+  padding:0.5rem;
+  margin-bottom: 1rem;
+}

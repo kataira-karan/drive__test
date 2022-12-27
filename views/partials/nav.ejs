@@ -1,0 +1,66 @@
+<nav>
+  <ul>
+    <li class="nav-item">
+      <a href="/" class="nav-link"> Home </a>
+    </li>
+
+    <% if(typeof driver === "undefined" && typeof admin === "undefined" &&
+    typeof examiner === "undefined") {%>
+
+    <li class="nav-item">
+      <a href="/login" class="nav-link"> Login </a>
+    </li>
+
+    <% } %> <% if(typeof driver != "undefined") {%>
+
+    <li class="nav-item">
+      <a href="/g2_page" class="nav-link"> G2_Test </a>
+    </li>
+    <li class="nav-item">
+      <a href="/g_page" class="nav-link" class="custome-underline">G_Test</a>
+    </li>
+
+    <li class="nav-item">
+      <a href="/auth/logout" class="nav-link" class="custome-underline"
+        >LogOut</a
+      >
+    </li>
+
+    <% } %> <% if(typeof admin != "undefined") { %>
+
+    <li class="nav-item">
+      <a href="/appointment" class="nav-link" class="custome-underline"
+        >G2 Appointment</a
+      >
+    </li>
+
+    <li class="nav-item">
+      <a href="/addGAppointment/" class="nav-link" class="custome-underline"
+        >G Appointment</a
+      >
+    </li>
+
+    <li class="nav-item">
+      <a href="/auth/logout" class="nav-link" class="custome-underline"
+        >LogOut</a
+      >
+    </li>
+
+    <% }%> <% if(typeof examiner != "undefined") { %>
+
+    <li class="nav-item">
+      <a href="/examiner" class="nav-link" class="custome-underline"
+        >Examiner</a
+      >
+    </li>
+
+    <li class="nav-item">
+      <a href="/auth/logout" class="nav-link" class="custome-underline"
+        >LogOut</a
+      >
+    </li>
+
+    <% }%>
+  </ul>
+  <hr />
+</nav>

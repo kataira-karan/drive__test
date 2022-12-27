@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/home.css" />
+    <link rel="stylesheet" href="/examiner.css">
+
+    <title>Document</title>
+  </head>
+  
+  <body>
+
+    <%- include('partials/nav') -%>
+
+      <div class="examiner-container">
+        <div class="g2_tests">
+
+              <% if(typeof message != "undefined") {%>
+
+
+
+                <%= message %>
+
+                <% } %>
+
+                <header>G2 Test</header>
+
+                <div class="g2-test-drivers-container">
+                  
+                  <% if(typeof g2Users != "undefined") {%>
+
+                    <% if(g2Users.length === 0) { %>
+
+                      No G2 Driver Test
+
+                      <% } %>
+
+                      <div class="g2Drivers-container">
+                        
+                      <% if(g2Users.length != 0) { %>
+
+                        <% for(var i = 0 ;  i < g2Users.length  ; i++) { %>
+
+                          <div class="g2Driver-details-card">
+
+                            <div class="g2Driver-details-span">
+                              <span class="g2Driver-details-title">Name:</span> <span class="g2Driver-details-value">      <%= g2Users[i].firstName %>
+                                <%= g2Users[i].lastName %></span>
+                            </div>
+
+                            <div class="g2Driver-details-span">
+                              <span class="g2Driver-details-title">AppId:</span>
+                               <span class="g2Driver-details-value"> <%= g2Users[i].appointmentId._id %></span>
+                            </div>
+
+                            <div class="g2Driver-details-span">
+                              <span class="g2Driver-details-title">Car:</span>
+                               <span class="g2Driver-details-value"> <%= g2Users[i].car.model%>- <%= g2Users[i].car.year%> </span>
+                            </div>
+
+                            <div class="g2Driver-details-span">
+                              <span class="g2Driver-details-title">PlateNO:</span>
+                               <span class="g2Driver-details-value"> <%= g2Users[i].car.plateNumber%></span>
+                            </div>
+
+                    <%if(g2Users[i].isFeedback){ %>
+
+                      <div class="g2Driver-details-span">
+                        <span class="g2Driver-details-title">CommetByExaminer:</span>
+                         <span class="g2Driver-details-value"> <%= g2Users[i].commentByExaminer %> </span>
+                      </div>
+
+                      
+                      <div class="g2Driver-details-span">
+                        <span class="g2Driver-details-title">Test Result:</span>
+                         <span class="g2Driver-details-value"> <%= g2Users[i].isTestPass %> </span>
+                      </div>
+
+
+                    <% } %>
+
+                    <% if(!g2Users[i].isFeedback) {%>
+
+                      <button><a href="/examiner/selectdriver/<%=g2Users[i]._id%>">Add Result</a></button>
+
+
+                    <% } %>
+
+                        
+
+                          </div>
+
+                          <% } %>
+  
+                        <% } %>
+                      </div>
+
+
+                    <% } %>
+                  
+
+                </div>
+
+
+        </div>
+
+        <div class="g_tests">
+
+
+        </div>
+    </div>
+
+  </body>
+</html

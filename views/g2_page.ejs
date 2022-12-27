@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/g2_page.css" />
+    <link rel="stylesheet" href="/home.css" />
+
+
+  </head>
+  <body>
+    <%- include('partials/nav') -%>
+
+    <div class="g2Form_container">
+      <div class="g2_form">
+
+        <% if(typeof user.firstName != "undefined") {%>
+
+          <header>Driver Details
+            .................
+          </header>
+
+          <div class="user-detail">
+            <span class="user-detail-title">
+              First Name:
+            </span>
+            <span class="user-detail-value">
+              <%= user.firstName%>  
+            </span>
+          </div>
+
+          <div class="user-detail">
+            <span class="user-detail-title">
+              Last Name:
+            </span>
+            <span class="user-detail-value">
+              <%= user.lastName%>  
+            </span>
+          </div>
+         
+
+          <div class="user-detail">
+            <span class="user-detail-title">
+             User Name:
+            </span>
+            <span class="user-detail-value">
+              <%= user.userName%>  
+            </span>
+          </div>
+
+          <div class="user-detail">
+            <span class="user-detail-title">
+             User Id:
+            </span>
+            <span class="user-detail-value">
+              <%= user.userId%>  
+            </span>
+          </div>
+
+          <div class="user-detail">
+            <span class="user-detail-title">
+             Birth Date:
+            </span>
+            <span class="user-detail-value">
+              <%= user.dob%>  
+            </span>
+          </div>
+          
+          <header>Address Details.............</header>
+
+          <div class="user-detail">
+            <span class="user-detail-title">
+             House No:
+            </span>
+            <span class="user-detail-value">
+              <%= user.address.houseNo%>  
+            </span>
+          </div>
+
+          <div class="user-detail">
+            <span class="user-detail-title">
+             Street:
+            </span>
+            <span class="user-detail-value">
+              <%= user.address.streetName%>  
+            </span>
+          </div>
+
+          <div class="user-detail">
+            <span class="user-detail-title">
+              city:
+            </span>
+            <span class="user-detail-value">
+              <%= user.address.city%>  
+            </span>
+          </div>
+          
+          <div class="user-detail">
+            <span class="user-detail-title">
+              Province:
+            </span>
+            <span class="user-detail-value">
+              <%= user.address.province%>  
+            </span>
+          </div>
+
+          <div class="user-detail">
+            <span class="user-detail-title">
+              postalCode:
+            </span>
+            <span class="user-detail-value">
+              <%= user.address.postalCode%>  
+            </span>
+          </div>
+          
+          <header>Car Details.............</header>
+          
+          <div class="user-detail">
+            <span class="user-detail-title">
+             Car Name:
+            </span>
+            <span class="user-detail-value">
+              <%= user.car.model%>  
+            </span>
+          </div>
+          <div class="user-detail">
+            <span class="user-detail-title">
+             Car Year:
+            </span>
+            <span class="user-detail-value">
+              <%= user.car.year%>  
+            </span>
+          </div>
+
+          <div class="user-detail">
+            <span class="user-detail-title">
+             Car plateNumber:
+            </span>
+            <span class="user-detail-value">
+              <%= user.car.plateNumber%>  
+            </span>
+          </div>
+          
+
+          <!-- <div class="user-detail">
+            <span class="user-detail-title">
+             G2:
+            </span>
+            <span class="user-detail-value">
+              <% if(user.g2Holder  != "undefined" ){%>
+                <a href="">Register G2 Test</a>
+                
+              <% } %>
+
+              <% if(user.g2Holder  === "undefined" ){ %>
+              <% } %>
+            </span>
+          </div>
+
+          <div class="user-detail">
+            <span class="user-detail-title">
+             G:
+            </span>
+            <span class="user-detail-value">
+              <% if(user.gHolder  != "undefined" ){ %>
+                Yes
+              <% } %>
+
+              <% if(user.gHolder  === "undefined" ){ %>
+                  <a href="">Register G Test</a>
+              <% } %>
+            </span>
+          </div> -->
+
+
+
+
+
+          <%  } %>
+
+        <% if(typeof user.firstName === "undefined" ) {%> 
+
+          <form  action="/adduserinfo" method="POST" enctype="multipart/form-data">
+            <div class="form_control">
+              <label for=""> First Name </label>
+  
+              <input type="text" placeholder="firstName" id="firstName"
+              name="firstName" required />
+              
+            </div>
+  
+            <div class="form_control">
+              <label for=""> Last Name </label>
+  
+              <input type="text" placeholder="last Name" id="lastName"
+              name="lastName" required  />
+            </div>
+  
+            <div class="form_control">
+              <label for=""> User Id </label>
+  
+              <input type="text" placeholder="userId" id="userId" name="userId"
+               required />
+            </div>
+  
+            <div class="form_control">
+              <label for="">Date of birth </label>
+  
+              <input type="date" placeholder="dob" id="dob" name="dob" required />
+            </div>
+            <div id="address" class="form_control">
+              <div class="address_detail">
+                <label for=""> House No. </label>
+  
+                <input type="text" placeholder="House No" id="houseNo"
+                name="houseNo" required/>
+              </div>
+              <div class="address_detail">
+                <label for=""> Street Name </label>
+  
+                <input type="text" placeholder="StreetName" id="streetName"
+                name="streetName"required />
+              </div>
+              <div class="address_detail">
+                <label for=""> City </label>
+  
+                <input type="text" placeholder="city" id="city" name="city" required/>
+              </div>
+              <div class="address_detail">
+                <label for=""> Province </label>
+  
+                <input type="text" placeholder="province" id="province"
+                name="province" required />
+              </div>
+  
+              <div class="address_detail">
+                <label for=""> Postal Code </label>
+  
+                <input type="text" placeholder="Postal Code" id="postalCode"
+                name="postalCode" required />
+              </div>
+            </div>
+  
+            <div id="car">
+              <div class="car_detial">
+                <label for=""> Car Model</label>
+                <input type="text" placeholder="Car Model" id="carModel"
+                name="carModel" required/>
+                
+              </div>
+  
+              <div class="car_detial">
+                <label for=""> Car Year</label>
+                <input type="text" placeholder="Car year" id="carYear"
+                name="carYear" required  >
+              </div>
+  
+              <div class="car_detial">
+                <label for=""> Car Plate Number</label>
+                <input type="text" placeholder="Plate Number" id="plateNumber"
+                name="plateNumber" required/>
+              </div>
+            </div>
+  
+            <div class="form_control">
+              <label for=""> License Number </label>
+  
+              <input
+                type="text"
+                placeholder="License Number"
+                id="licenseNumber"
+                name="licenseNumber"
+                required
+              />
+            </div>
+  
+            <div class="form_control">
+              <label for=""> Add Image </label>
+  
+              <input type="file" placeholder="image 1" id="img1" name="img1" required />
+            </div>
+  
+            <input type="submit" class="submitButton" />
+          </form> 
+          
+          <% } %>
+       
+      </div>
+
+      <div class="appointment-section" >
+
+         
+        <span class="appointment-section-title">
+          Book Your Appointment For G2
+        </span>
+
+        <%if(typeof isAppointmentBooked != "undefined") { %>
+
+      <div class="booked-appointment-container">
+
+              <header>G2 Driving Test Details </header>
+            
+            <span class="booked-appointment-detail">
+              Your appointment Number is <span><%= user.appointmentId %></span> 
+            </span>
+  
+            <span class="booked-appointment-detail">You have G2 Driving test appointment on 
+              <span>
+                <%= isAppointmentBooked.date
+              %>
+              </span>
+                </span>
+            <span class="booked-appointment-detail">
+              Timing is : <span>
+                <%= isAppointmentBooked.appointmentStartAt%>-<%= isAppointmentBooked.appointmentEndAt%>
+              </span> 
+            </span>
+          </div>
+           
+
+          <% } %>
+
+        <form
+        
+        class="check-availability-form"
+        method="post"
+        action="/appointment/checkavailableslot"
+      >
+        <input type="date" name="date" class="appointment-date" />
+
+        <input type="submit" value="Check Slot" />
+      </form>
+
+        <div class="appointmnets-on-date">
+          <% if(typeof appointments != "undefined") { %>
+
+            <% if(appointments.length === 0 ){%>
+
+              <h2>There is no appointment to Book for this date</h2>
+
+              <% } %>
+
+            <% for(var i = 0 ; i < appointments.length ; i++){%>
+
+          <form class="appointment-container" method="POST" action="/appointment/bookmyappointment">
+            <span class="book-appointment-field" class="appointmnet-start-at">
+              <label class="book-appointment-field-title"> AppointmentId :</label>
+              <input class="book-appointment-field-value" id="appointmnet_appointmentId" name="appointmnet_appointmentId" value="<%= appointments[i]._id %>" readonly>
+         
+              </input>                                                                                                                                                                
+            </span>
+
+            <span class="book-appointment-field" class="appointmnet-date">
+              <label class="book-appointment-field-title">Date :</label>
+              <input class="book-appointment-field-value" name="apponintment_date" value="<%= appointments[i].date %>" readonly>
+                </input
+              ></span
+            >
+
+            <span class="book-appointment-field" class="appointmnet-start-at">
+              <label class="book-appointment-field-title">Timing :</label>
+              <input class="book-appointment-field-value" name="appointmnet_time" value="<%= appointments[i].appointmentStartAt %> - <%=
+              appointments[i].appointmentEndAt %>" readonly>
+         
+              </input>                                                                                                                                                                
+            </span>
+
+            <input type="submit" class="book-appointment-button" value="Book Appointment"> </input>
+          </form>
+
+          <%}%> 
+          <%} %>
+        </div>  
+
+
+
+        <!--START OF IF USER HAS ALREADY BOOKED AN G2 APPOINTMNET -->
+
+    
+          <!--END OF IF USER HAS ALREADY BOOKED AN G2 APPOINTMNET -->
+
+          <!--START OF IF USER HAS ALREADY BOOKED AN G2 APPOINTMNET -->
+
+        
+        <!-- <% if(user.appointmentId === null)  {%> -->
+
+         
+         
+        <!-- START ==> THIS MESSAGE WILL BE DISPLAY WHEN USER COMPLETE BOOKING -->
+
+        <% if( typeof isAppointmentBooked != "undefined") {%>
+
+          You have success  fully booked appointment for G2 text
+
+          <div>
+            date : <%=  appointmentDetails.date %>
+            Time : <%=  appointmentDetails.appointmentStartAt %> - <%=  appointmentDetails.appointmentEndAt %>
+          </div>
+
+          <% } %>
+
+          <!-- END ==> THIS MESSAGE WILL BE DISPLAY WHEN USER COMPLETE BOOKING -->
+
+        
+      
+
+                 <!-- <%  } %> -->
+
+      </div>
+    </div>
+  </body>
+</html>

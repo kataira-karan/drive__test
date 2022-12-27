@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/home.css" />
+    <link rel="stylesheet" href="/appointment.css" />
+  </head>
+  <body>
+    <%- include('partials/nav') -%>
+
+
+    <div class="appointment-container">
+
+   
+
+        <div class="appointment-form-container">
+  
+          <% if(typeof message != "undefined") {%>
+            <%= message %>
+  
+            <% } %>
+            <% if(typeof duplicateError != "undefined") {%>
+
+
+              <span class="duplicate-entry-message">
+                <%= duplicateError %>
+              </span>
+      
+              
+      
+              <% } %>
+          <h2> Add A New G Appointment</h2>
+  
+          <form action="/addGAppointment/addnewgappointment" method="POST">
+            <div class="form-control">
+                <input
+                type="date"
+                placeholder="Enter date"
+                id="appointment_date"
+                name="appointment_date"
+                class="appointment-date"
+                required
+              />
+            </div>
+  
+  
+            <div class="form-control">
+              <input type="text" id="appointment_start_at" name="appointment_start_at" placeholder="From" required>
+              <select name="ampm" id="ampm" name="selection">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+            </div>  
+  
+  
+            <div class="form-control">
+              <input type="text" id="appointment_end_at" name="appointment_end_at" placeholder="Till" required>
+            
+              <select name="ampm" id="ampm" name="selection">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+      
+            </div>            
+            <input type="submit" class="submitButton" />
+    
+             
+          </form> 
+        </div>
+  
+  
+        <div class="display-all-appointment-container">
+  
+  
+  
+          <div class="find-appointment-form-container">
+          <h2>Filter Appointment Using Date</h2>
+            <form class="find-appointment-form"  action="/addGAppointment/filtergtestbydate" method="POST">
+              <div class="find_date_form-control">
+                  <input
+                  type="date"
+                  id="find_appointment_date"
+                  name="find_appointment_date"
+                  class="find_appointment-date"
+                  required
+                />
+              </div>
+              
+              <input type="submit" class="submitButton" value="Check appointment" />
+      
+               
+            </form> 
+          </div>
+  
+  
+          <% if(typeof allAppointments != "undefined") { %>
+            
+
+            <%if(allAppointments.length === 0) {%>
+
+              NO G APPOINTMENT AVAILABLE
+
+              <%}%>
+            
+            
+              <%if(allAppointments.length != 0) {%>
+
+                <h2>All Appontments</h2>
+  
+              
+                <div class="appointments">  
+                  
+                  <% for(let i = 0 ; i < allAppointments.length ; i++){%>
+      
+                    <div class="appointment-box">
+                      <div class="appointment-box-field">
+                        <span class="appointmnet-box-title">Date:</span> <span class="appointmnet-box-value"> <%= (allAppointments[i].date) %></span>
+                      </div>
+      
+                      <div class="appointment-box-field">
+                        <span class="appointmnet-box-title">Timing:</span> <span class="appointmnet-box-value"> <span class="appointmnet-box-value"><%= allAppointments[i].appointmentStartAt %>- <%= allAppointments[i].appointmentEndAt %>
+                        </span></span>
+                      </div>
+                     
+                      </span>
+                     
+                      
+                      <% if(allAppointments[i].isTimeSlotAvailable) {%>
+      
+                        <span class="available">Available</span>
+      
+                        <%}%>
+               
+                      <% if(!allAppointments[i].isTimeSlotAvailable) {%>
+      
+                        <span class="booked">Booked</span>
+      
+                        <%}%>
+          
+                      </div>
+      
+                  <% } %>
+                </div>
+      
+      
+                <% } %>
+      
+      
+                <!-- FILTERED APPOINTMENT -->
+                    
+  
+                <%}%>
+  
+
+  
+            <!-- DISPLAY ALL THE APPOINTMENTS ADDED BY THE ADMIN -->
+       
+            <% if(typeof filteredAppointment != "undefined") { %>
+  
+              <!-- DISPLAY ALL THE APPOINTMENTS ADDED BY THE ADMIN -->
+                
+              
+  
+              <div class="appointments">  
+  
+                <% for(let i = 0 ; i < filteredAppointment.length ; i++){%>
+    
+                  <div class="appointment-box">
+                    <div class="appointment-box-field">
+                      <span class="appointmnet-box-title">Date:</span> <span class="appointmnet-box-value"> <%= (filteredAppointment[i].date) %></span>
+                    </div>
+    
+                    <div class="appointment-box-field">
+                      <span class="appointmnet-box-title">Timing:</span> <span class="appointmnet-box-value"> <span class="appointmnet-box-value"><%= filteredAppointment[i].appointmentStartAt %>- <%= allAppointments[i].appointmentEndAt %>
+                      </span></span>
+                    </div>
+                    
+                    </span>
+                    
+                    <% if(filteredAppointment[i].isTimeSlotAvailable) {%>
+    
+                      <span class="available">Available</span>
+    
+                      <%}%>
+       
+                    <% if(!filteredAppointment[i].isTimeSlotAvailable) {%>
+    
+                      <span class="booked">Booked</span>
+    
+                      <%}%>
+                    
+    
+                    </div>
+
+                <% } %>
+              </div>
+    
+    
+              <% } %>
+  
+        </div>
+        
+        
+      </div>
+  </body>
+</html>

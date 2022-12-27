@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/home.css" />
+    <link rel="stylesheet" href="/examiner.css" />
+    <link rel="stylesheet" href="/examinerUpdateDriver.css" />
+  </head>
+  <body>
+    <%- include('partials/nav') -%> <% if(typeof selectedDriver != "undefined")
+    {%>
+
+    <div class="examinerUpdateDriver-container">
+      <header>
+        <%= selectedDriver.firstName %> <%= selectedDriver.lastName %>
+      </header>
+
+      <div class="test-results-form">
+        <header>Test Results</header>
+        <form
+          action="/examiner/postdrivertestresult/<%= selectedDriver._id %>"
+          method="POST"
+        >
+          <div class="form-controler">
+            <label for="g1testResult">G1 Test</label>
+            Pass<input type="radio" id="pass" name="decision" value="pass" />
+
+            Fail<input type="radio" id="fail" name="decision" value="fail" />
+          </div>
+
+          <div class="form-controler">
+            <label for="commntOnTest">Comment</label>
+            <input type="textarea" name="commntOnTest" id="commentOnTest" />
+          </div>
+
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.login-page-container {
+  display: flex;
+  width: 97vw;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.singInForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column      ;
+  /* background-color: rosybrown; */
+  width: 50%;
+}
+
+.singUpForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column  ;
+  width: 50%;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  color: grey;
+  margin-top: 15px;
+}
+input {
+  /* border: none; */
+  padding: 8px;
+  border-radius: 5px;
+  border:0;
+  border:1px solid black; 
+  box-shadow: 2px 2px 5px grey;
+}
+
+select{
+  display: block;
+  padding: 0.2rem 1rem;
+  border-radius: 5  px
+}
+
+.submitButton {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+}
+    
+.errorMessage {
+  border: 1px solid black;
+  padding: 0.5rem 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.111rem;
+  background-color: rgb(236, 122, 122);
+  margin-bottom: 0.5rem;    
+}
